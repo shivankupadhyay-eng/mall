@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -85,16 +86,25 @@ WSGI_APPLICATION = 'backtask.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'shopping_mall',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Shivank@7225',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432'
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'shopping_mall',
-        'USER': 'postgres',
-        'PASSWORD': 'Shivank@7225',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgres://abc_sxfo_user:5NSWFfCTJ0uvRYwLWcP1riVMH47sxmtP@dpg-co9rddkf7o1s739dm4hg-a.oregon-postgres.render.com/abc_sxfo',
+        conn_max_age=600
+    )
 }
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
