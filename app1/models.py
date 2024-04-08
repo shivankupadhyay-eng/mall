@@ -8,7 +8,7 @@ class Employee(models.Model):
     role=models.TextField(blank=False , null=True)
     email=models.EmailField(blank=False, null=True)
     def __str__(self):
-        return self.user
+        return self.role
   
 
 class Product(models.Model):
